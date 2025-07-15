@@ -2,27 +2,26 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("rashis", {
+    await queryInterface.createTable("nakshatras", {
       id: {
         allowNull: false,
-        primaryKey: true,
         autoIncrement: true,
+        primaryKey: true,
         type: Sequelize.BIGINT,
       },
-      rashi_uuid: {
-        allowNull: false,
+      nakshatra_uuid: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      rashi_name_sanskrit: {
+      nakshatra_sanskrit: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      rashi_name_english: {
+      nakshatra_english: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      rashi_name_marathi: {
+      nakshatra_marathi: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -37,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("rashis");
+    await queryInterface.dropTable("nakshatras");
   },
 };

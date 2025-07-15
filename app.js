@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-const { connectDB } = require("./confitg/db");
 
 const app = express();
 
@@ -24,15 +23,9 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 async function startServer() {
-  const isConnect = await connectDB();
-  if (!isConnect) {
-    console.error("Fatal: Database connection failed. Exiting...");
-    process.exit(1);
-  } else {
-    app.listen(PORT, () => {
-      console.log(`Server is running on ${PORT}`);
-    });
-  }
+  app.listen(PORT, () => {
+    console.log(`Server is running on ${PORT}`);
+  });
 }
 
 startServer();
