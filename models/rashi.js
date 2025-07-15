@@ -1,10 +1,10 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Rashi extends Model {
+  class rashi extends Model {
     static associate(models) {}
   }
-  Rashi.init(
+  rashi.init(
     {
       id: {
         type: DataTypes.BIGINT,
@@ -36,5 +36,5 @@ module.exports = (sequelize, DataTypes) => {
       tableName: "rashis",
     }
   );
-  return Rashi;
+  return rashi;
 };
